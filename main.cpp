@@ -250,7 +250,11 @@ int main()
         {
             key=getch();
             control();
-            if (key=='q'||key=='Q') break;
+            if (key=='q'||key=='Q')
+            {
+                point (0,29);
+                return 0;
+            }
             else if ((key=='f')&&(!check(c[x][y]))||(key=='F'))
             {
                 cout<<turn(i);
