@@ -9,6 +9,7 @@ using namespace std;
 char key,x,y;
 string p1,p2;
 char c[101][101];
+int s1=0,s2=0;
 void fil()
 {
     int i,j;
@@ -51,9 +52,9 @@ char turn(int i)
     }
 }
 
-bool check( bool n)
+bool check( char n)
 {
-    return(n==1);
+    return(n=='X'||n=='O');
 }
 bool vert(int y)
 {
@@ -77,7 +78,7 @@ bool vert(int y)
             else break;
         }
     }
-    return dem==4;
+    return dem>=4;
 }
 
 bool hor(int x)
@@ -102,7 +103,7 @@ bool hor(int x)
             else break;
         }
     }
-    return dem==4;
+    return dem>=4;
 }
 bool lrdiagonal (int x, int y)
 {
@@ -127,7 +128,7 @@ bool lrdiagonal (int x, int y)
                 else break;
             }
         }
-        return dem==4;
+        return dem>=4;
     }
 }
 
@@ -153,19 +154,37 @@ bool rldiagonal(int x,int y)
             else break;
         }
     }
-    return dem==4;
+    return dem>=4;
 }
-
+void howtoplay()
+{
+    cout<<"Caro is one of common games of Vietnamese students (during classes)"<<endl;
+    cout<<"The rule is very simple :"<<endl;
+    cout<<"Each player takes turn to sign their symbol in a square"<<endl;
+    cout<<"When one player signs 5 his symbols in a row, he will win"<<endl;
+}
 void player()
 {
+    system("cls");
     cout<<"\t\t\t\tWELCOME TO CARO BATTLE FIELD"<<endl;
     cout<<"\t\t\t     YOU TWO HAVE TO PUT YOUR NAME HERE"<<endl;
+    howtoplay();
     cout<<"PLAYER 1 : ";
     getline(cin,p1);
     cout<<"PLAYER 2 : ";
     getline(cin,p2);
 
 }
+void Begin()
+{
+    cout<<"\t\t\t\tWELCOME TO CARO BATTLE FIELD"<<endl;
+    cout<<"\t\t\t     YOU TWO HAVE TO PUT YOUR NAME HERE"<<endl;
+    cout<<"Press 1 to play right away"<<endl;
+    cout<<"If you do not know how to play, press 2 for instruction"<<endl;
+    cout<<"Press 3 to exit game"<<endl;
+
+}
+
 void table()
 {
     int i,j;
@@ -207,6 +226,7 @@ void table()
         else cout<<dg<<ng;
     }
 }
+
 void inst()
 {
     TextColor(7);
@@ -221,12 +241,12 @@ void game(int i)
 {
     system("cls");
     TextColor(13);
-    cout<<"\t\t\t\t\tCARO BATTLE FIELD"<<endl;
+    cout<<"\t\t\t\t\t\tCARO BATTLE FIELD"<<endl;
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<p1<<" VS "<<p2<<endl<<endl;
+    cout<<"\t\t\t\t\t"<<s1<<"\t"<<p1<<" VS "<<p2<<"\t"<<s2<<endl<<endl;
     if (i%2==1)
-    cout<<"\t\t\t\t\t"<<p1<<" go first"<<endl;
-    else cout<<"\t\t\t\t\t"<<p2<<" go first"<<endl;
+    cout<<"\t\t\t\t\t\t"<<p1<<" go first"<<endl;
+    else cout<<"\t\t\t\t\t\t"<<p2<<" go first"<<endl;
     TextColor(7);
     TextColor(10);
     table();
@@ -267,17 +287,27 @@ int main()
                     if (c[x][y]=='X')
                         {
                             cout<<" "<<p2<<" WIN";
+                            s2++;
                             Sleep(5000);
                             i=0;
                         }
                     else
                     {
                         cout<<" "<<p1<<" WIN";
+                        s1++;
                         Sleep(5000);
                         i=1;
                     }
                     break;
                 }
+                else if (i>=38*12-1)
+                    {
+                        point(0,20);
+                        TextColor(14);
+                        cout<<" Draw";
+                        Sleep(5000);
+                        i=0;
+                    }
             }
         }
     }
