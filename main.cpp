@@ -175,16 +175,6 @@ void player()
     getline(cin,p2);
 
 }
-void Begin()
-{
-    cout<<"\t\t\t\tWELCOME TO CARO BATTLE FIELD"<<endl;
-    cout<<"\t\t\t     YOU TWO HAVE TO PUT YOUR NAME HERE"<<endl;
-    cout<<"Press 1 to play right away"<<endl;
-    cout<<"If you do not know how to play, press 2 for instruction"<<endl;
-    cout<<"Press 3 to exit game"<<endl;
-
-}
-
 void table()
 {
     int i,j;
