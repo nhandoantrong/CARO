@@ -1,0 +1,101 @@
+
+bool vert(int y)
+{
+    int i=y,j,dem=0;
+    for (j=1; j<5; j++)
+    {
+        if (c[x][i+2*j]==c[x][i])
+        {
+            dem++;
+        }
+        else break;
+    }
+    if (dem<4)
+    {
+        for (j=1; j<5; j++)
+        {
+            if (c[x][i-2*j]==c[x][i])
+            {
+                dem++;
+            }
+            else break;
+        }
+    }
+    return dem>=4;
+}
+
+bool hor(int x)
+{
+    int i=x,j,dem=0;
+    for (j=1; j<5; j++)
+    {
+        if (c[i][y]==c[i+2*j][y])
+        {
+            dem++;
+        }
+        else break;
+    }
+    if (dem<4)
+    {
+        for (j=1; j<5; j++)
+        {
+            if (c[i][y]==c[i-2*j][y])
+            {
+                dem++;
+            }
+            else break;
+        }
+    }
+    return dem>=4;
+}
+bool lrdiagonal (int x, int y)
+{
+    {
+        int i=x,j,k=y,dem=0;
+        for (j=1; j<5; j++)
+        {
+            if (c[i][k]==c[i+2*j][k+2*j])
+            {
+                dem++;
+            }
+            else break;
+        }
+        if (dem<4)
+        {
+            for (j=1; j<5; j++)
+            {
+                if (c[i][k]==c[i-2*j][k-2*j])
+                {
+                    dem++;
+                }
+                else break;
+            }
+        }
+        return dem>=4;
+    }
+}
+
+bool rldiagonal(int x,int y)
+{
+    int i=x,j,k=y,dem=0;
+    for (j=1; j<5; j++)
+    {
+        if (c[i][k]==c[i+2*j][k-2*j])
+        {
+            dem++;
+        }
+        else break;
+    }
+    if (dem<4)
+    {
+        for (j=1; j<5; j++)
+        {
+            if (c[i][k]==c[i-2*j][k+2*j])
+            {
+                dem++;
+            }
+            else break;
+        }
+    }
+    return dem>=4;
+}
