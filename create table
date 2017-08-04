@@ -1,0 +1,41 @@
+void table()
+{
+    int i,j;
+    char tt=218,ng=196,g=194,tp=191,d=179,ng1=195,th=197,ng2=180,dt=192,dg=193,dp=217;
+    cout<<"\t\t";
+    for (i=1; i<40; i++)
+    {
+        if (i==1) cout<<tt<<ng;
+        else if (i==39) cout<<tp;
+        else cout<<g<<ng;
+    }
+    cout<<endl<<"\t\t";
+    for (j=1; j<12; j++)
+    {
+        for (i=1; i<79; i++)
+        {
+            if (i%2==1) cout <<d;
+            else cout<<" ";
+        }
+        cout<<endl<<"\t\t";
+        for (i=1; i<40; i++)
+        {
+            if (i==1) cout<<ng1;
+            else if (i==39) cout<<ng<<ng2;
+            else cout<<ng<<th;
+        }
+        cout<<endl<<"\t\t";
+    }
+    for (i=1; i<79; i++)
+    {
+        if (i%2==1) cout <<d;
+        else cout<<" ";
+    }
+    cout<<endl<<"\t\t";
+    for (i=1; i<40; i++)
+    {
+        if (i==1) cout<<dt<<ng;
+        else if (i==39) cout<<dp;
+        else cout<<dg<<ng;
+    }
+}
