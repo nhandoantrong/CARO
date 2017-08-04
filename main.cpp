@@ -256,7 +256,7 @@ int main()
         x=17+15*2;
         y=6+4*2;
         point(x,y);
-        while (key!='q'||key!='Q')
+        while (1)
         {
             key=getch();
             control();
